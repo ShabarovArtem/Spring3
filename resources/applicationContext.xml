@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id = "myPet"
+          class = "org.example.spring_introduction.Dog" >
+        <!--     описывем класс Dog, полный путь spring_introduction.Dog,
+            id индентификатор бина, class полное имя класса,
+            Spring Bean or bean это объект который создаётся и управляется Spring Container
+            нельзя интерфейс-->
+    </bean>
+    <bean id = "myPerson"
+          class = "org.example.spring_introduction.Person">
+        <!--<constructor-arg ref="myPet"/>
+         у класса myPerson не конструктора без параметров, нужно
+        указать ссылку, которая входит в конструктор, указали bean, создали зависимость
+         -->
+        <property name="pet" ref="myPet"/>
+        <!-- pet прверащается в setPet, поэтому конструктор в person
+        нужно создавать грамотно-->
+        <property name="surname" value="Shabarov"/>
+        <property name="age" value="20"/>
+    </bean>
+</beans>
